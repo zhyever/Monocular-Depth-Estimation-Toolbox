@@ -1,0 +1,4 @@
+mmcv
+prettytable
+torch
+torchvision
