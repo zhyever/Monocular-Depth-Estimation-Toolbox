@@ -23,11 +23,9 @@ optimizer = dict(
     weight_decay=0.1,
     paramwise_cfg=dict(
         custom_keys={
-            'decode_head': dict(lr_mult=10), # 10 lr
-            # 'adaptive_bins_layer': dict(lr_mult=10), # 10 lr
-            # 'decoder': dict(lr_mult=10), # 10 lr
-            # 'conv_out': dict(lr_mult=10), # 10 lr
+            'decode_head': dict(lr_mult=10), # x10 lr
         }))
+
 # learning policy
 lr_config = dict(
     policy='OneCycle',

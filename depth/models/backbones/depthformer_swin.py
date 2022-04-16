@@ -599,6 +599,27 @@ class DepthFormerSwin(BaseModule):
         pretrained (str, optional): model pretrained path. Default: None.
         init_cfg (dict, optional): The Config for initialization.
             Defaults to None.
+        
+        ### Conv cfg
+        conv_cfg (dict | None): Dictionary to construct and config conv layer.
+            When conv_cfg is None, cfg will be set to dict(type='Conv2d').
+            Default: None.
+        conv_norm_cfg (dict): Dictionary to construct and config norm layer.
+            Default: None.
+        depth (int): Depth of resnet, from {18, 34, 50, 101, 152}.
+        num_stages (int): Resnet stages, normally 0. Default: None.
+        with_cp (bool): Use checkpoint or not. Using checkpoint will save some
+            memory while slowing down the training speed. Default: False.
+        conv_strides (Sequence[int]): Strides of the first block of each stage.
+            Default: (1, 2, 2, 2).,
+        conv_dilations (Sequence[int]): Dilation of each stage.
+            Default: (1, 1, 1, 1).
+        style (str): `pytorch` or `caffe`. If set to "pytorch", the stride-two
+            layer is the 3x3 conv layer, otherwise the stride-two layer is
+            the first 1x1 conv layer. Default: 'pytorch'. (No use in this version. We utilize scratched Resnet branch in our experiments)
+        conv_pretrained (str, optional): model pretrained path. Default: None. 
+            (No use in this version. We utilize scratched Resnet branch in our experiments)
+
     """
 
     arch_settings = {
@@ -640,7 +661,7 @@ class DepthFormerSwin(BaseModule):
                  conv_strides=(1, 2, 2, 2),
                  conv_dilations=(1, 1, 1, 1),
                  style='pytorch',
-                 conv_pretrained='torchvision://resnet50'): # for the conv stem
+                 conv_pretrained=None):
         super(DepthFormerSwin, self).__init__()
 
         self.conv_cfg = conv_cfg

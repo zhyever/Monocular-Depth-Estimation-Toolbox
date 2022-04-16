@@ -46,16 +46,20 @@ This script convert model from `PRETRAIN_PATH` and store the converted model in 
 
 ## Results and models
 
-In our reproduction, we utilize the standard ImageNet pre-trained ViT-Base instead of the ADE20K pre-trained model in the original paper, which is fairer to compare with other monodepth methods. We find it seems that with direct training on a small dataset (like KITTI and NYU), the model tends to be overfitting and cannot achieve satisfying results. More experiments should be conducted.
+*This is a simple implementation. Only model structure can be aligned with original paper. More experiments about training settings or loss functions are needed to be done.*
+
+*We have achieved better results compared with results presented in our paper DepthFormer by conducting more carefully designed tricks.*
+
+In our reproduction, we utilize the standard ImageNet pre-trained ViT-Base instead of the ADE20K pre-trained model in the original paper, which is fairer to compare with other monodepth methods. We find it seems that with direct training on a small dataset (like KITTI and NYU), the model tends to be overfitting and cannot achieve satisfying results.
 
 ### KITTI
 
 | Method | Backbone | Train Epoch | Abs Rel (+flip) | RMSE (+flip) | Config | Download | GPUs |
 | ------ | :--------: | :----: | :--------------: | :------: | :------: | :--------: | :---:|
-| DPT  |  ViT-Base  |  24   | - | - |  [config](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/dpt/dpt_vit-b16_kitti.py) | log \| model | 8 V100 |
+| DPT  |  ViT-Base  |  24   | 0.073 | 2.604 |  [config](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/dpt/dpt_vit-b16_kitti.py) | [log](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/dpt/resources/logs/dpt_vitb_kitti_24e.txt) \| [model](https://drive.google.com/file/d/1ZuFh7COIgPs4Aml3Rrld54A5eYmBHggP/view?usp=sharing) | 8 V100s |
 
 ### NYU
 
 | Method | Backbone | Train Epoch | Abs Rel (+flip) | RMSE (+flip) | Config | Download | GPUs |
 | ------ | :--------: | :----: | :--------------: | :------: | :------: | :--------: | :---:|
-| DPT  |  ViT-Base  |  24   | 0.134 | 0.415 |  [config](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/dpt/dpt_vit-b16_nyu.py) | log \| model | 8 V100 |
+| DPT  |  ViT-Base  |  24   | 0.135 | 0.413 |  [config](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/dpt/dpt_vit-b16_nyu.py) | [log](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/dpt/resources/logs/dpt_vitb_nyu_24e.txt) \| [model](https://drive.google.com/file/d/13lxVNf-B5qt1cOoxSWTkVf3HlJGE-olv/view?usp=sharing) | 8 V100s |

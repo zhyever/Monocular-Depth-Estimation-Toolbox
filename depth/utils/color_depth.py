@@ -1,7 +1,7 @@
 import matplotlib
 
 # color the depth, kitti magma_r, nyu jet
-def colorize(value, cmap='jet', vmin=None, vmax=None):
+def colorize(value, cmap='magma_r', vmin=None, vmax=None):
     # TODO: remove hacks
 
     # for abs

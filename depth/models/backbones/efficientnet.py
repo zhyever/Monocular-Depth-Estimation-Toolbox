@@ -9,6 +9,8 @@ class EfficientNet(nn.Module):
     """EfficientNet backbone.
     Following Adabins, this is a hack version of EfficientNet, where potential bugs exist.
 
+    I recommend to utilize mmcls efficientnet presented at https://github.com/open-mmlab/mmclassification/blob/master/configs/efficientnet/efficientnet-b0_8xb32_in1k.py
+
     Args:
         basemodel_name (str): Name of pre-trained EfficientNet. Default: tf_efficientnet_b5_ap.
         out_index List(int): Output from which stages. Default: [4, 5, 6, 8, 11].

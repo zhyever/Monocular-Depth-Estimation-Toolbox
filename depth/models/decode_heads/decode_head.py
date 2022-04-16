@@ -5,12 +5,10 @@ import torch
 
 import numpy as np
 import torch.nn as nn
-import matplotlib.pyplot as plt
 from abc import ABCMeta, abstractmethod
 from mmcv.runner import BaseModule, auto_fp16, force_fp32
 
 from depth.ops import resize
-from depth.utils import colorize
 from depth.models.builder import build_loss
 
 

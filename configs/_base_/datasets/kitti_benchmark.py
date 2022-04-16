@@ -7,6 +7,7 @@ crop_size= (352, 704)
 train_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(type='DepthLoadAnnotations'),
+    dict(type='LoadKITTICamIntrinsic'),
     dict(type='KBCrop', depth=True),
     dict(type='RandomRotate', prob=0.5, degree=2.5),
     dict(type='RandomFlip', prob=0.5),
@@ -71,18 +72,6 @@ data = dict(
         eigen_crop=False,
         min_depth=1e-3,
         max_depth=88),
-    # test=dict(
-    #     type=dataset_type,
-    #     data_root=data_root,
-    #     img_dir='input',
-    #     ann_dir='gt_depth',
-    #     depth_scale=256,
-    #     split='benchmark_val.txt',
-    #     pipeline=test_pipeline,
-    #     garg_crop=True,
-    #     eigen_crop=False,
-    #     min_depth=1e-3,
-    #     max_depth=88)
     test=dict(
         type=dataset_type,
         data_root=data_root,

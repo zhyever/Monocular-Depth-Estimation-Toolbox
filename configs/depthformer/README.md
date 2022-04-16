@@ -26,16 +26,21 @@ This paper aims to address the problem of supervised monocular depth estimation.
 
 ## Results and models
 
+*As discussed in Issue [#20](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/issues/20), the loss may not converge as normal when directly regressing the depth value. Hence, we add a simple warmup strategy in the sigloss function. Hence, consider setting the `warm_up=True` for the sigloss as: `loss_decode=dict(type='SigLoss', valid_mask=True, loss_weight=1.0, warm_up=True)`, or setting the `scale_up=True` for the decode_head to predict depth in a sigmoid manner.*
+
+*The results here are obtained following the default setting (i.e., direct regression).*
+
+
 ### KITTI
 
 | Method | Backbone | Train Iters | Abs Rel (+flip) | RMSE (+flip) | Config | Download | GPUs |
 | ------ | :--------: | :----: | :--------------: | :------: | :------: | :--------: | :---:|
-| DepthFormer  |  SwinL-w7-22k  |  38400   | 0.052 | 2.133 |  [config](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/depthformer/depthformer_swinl_22k_w7_kitti.py) | [log](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/depthformer/resources/logs/depthformer_swinl_22k_w7_kitti.txt) \| model | 8 V100 |
+| DepthFormer  |  SwinL-w7-22k  |  38400   | 0.052 | 2.133 |  [config](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/depthformer/depthformer_swinl_22k_w7_kitti.py) | [log](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/depthformer/resources/logs/depthformer_swinl_22k_w7_kitti.txt) \| [model](https://drive.google.com/file/d/1BpcY9tULBRTW-cG8EVHBAZBapAv3ide4/view?usp=sharing) | 8 V100s |
 
 ### NYU
 
 | Method | Backbone | Train Iters | Abs Rel (+flip) | RMSE (+flip) | Config | Download | GPUs |
 | ------ | :--------: | :----: | :--------------: | :------: | :------: | :--------: | :---:|
-| DepthFormer | SwinT-w7-1k   |  38400   | 0.120 | 0.402 |  [config](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/depthformer/depthformer_swint_w7_nyu.py) | [log](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/depthformer/resources/logs/depthformer_swint_w7_nyu.txt) \| [model](https://drive.google.com/file/d/1u8Kjgd9EmwwB_xMeBD7XaalpDygbSP73/view?usp=sharing) | 2 3090 |
-| DepthFormer  |  SwinL-w7-22k  |  38400   | 0.094 | 0.330 |  [config](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/depthformer/depthformer_swinl_22k_w7_nyu.py) | [log](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/depthformer/resources/logs/depthformer_swinl_22k_w7_nyu.txt) \| model | 8 V100 |
+| DepthFormer | SwinT-w7-1k   |  38400   | 0.120 | 0.402 |  [config](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/depthformer/depthformer_swint_w7_nyu.py) | [log](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/depthformer/resources/logs/depthformer_swint_w7_nyu.txt) \| [model](https://drive.google.com/file/d/1u8Kjgd9EmwwB_xMeBD7XaalpDygbSP73/view?usp=sharing) | 2 3090s |
+| DepthFormer  |  SwinL-w7-22k  |  38400   | 0.094 | 0.330 |  [config](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/depthformer/depthformer_swinl_22k_w7_nyu.py) | [log](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/depthformer/resources/logs/depthformer_swinl_22k_w7_nyu.txt) \| [model](https://drive.google.com/file/d/1GMEgiiE-bkHYYD2xL8W6Qz50qa_P4T6e/view?usp=sharing) | 8 V100s |
 
