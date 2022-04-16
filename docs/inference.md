@@ -95,3 +95,22 @@ Assume that you have already downloaded the checkpoints to the directory `checkp
     ```
    
    You can find `.xyz` files in `./point-cloud`. Then just use visualization tools, such as MeshLab, to see reconstructed point clouds.
+
+   Here is an example:
+   <div align=center><img src="../resources/reconstructed_pc.png"/>
+
+### Tips about visualization
+
+In most papers, visualized depth maps are rendered with a specific colormap. These kinds of rendering are not invertible, leading to a difficulty to make qualitative comparisons among various methods. While it is hard to align the results of previous work, we implement a unified and also parameterizable rendering interface (I will add args in test.py in the next version).
+
+In this hack version, please refer to file `depth/utils/color_depth.py`. The parameters indicate several possible rendering manners. Comparisons can be seen below.
+
+```
+python ./tools/test.py configs/bts/bts_r50_nyu_24e.py nfs/saves/bts/bts_r50_nyu/epoch_24.pth --show-dir nfs/saves/visualization
+```
+
+| `cmap`\\`vmin,vmax` | Given Real Numbers | None|
+| :------:            | :--------: |  :--------: | 
+| `jet`               | <div align=center><img width="200" height="150" src="../resources/visualization_render/data_nyu_bedroom_rgb_00055_jet_v.jpg"/></div> | <div align=center><img width="200" height="150" src="../resources/visualization_render/data_nyu_bedroom_rgb_00055_jet_n.jpg"/></div>
+| `magma_r`           | <div align=center><img width="200" height="150" src="../resources/visualization_render/data_nyu_bedroom_rgb_00055_gm_v.jpg"/></div> | <div align=center><img width="200" height="150" src="../resources/visualization_render/data_nyu_bedroom_rgb_00055_gm_n.jpg"/></div>
+

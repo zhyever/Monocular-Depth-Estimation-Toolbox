@@ -1,4 +1,3 @@
-# Copyright (c) OpenMMLab. All rights reserved.
 import torch
 import torch.nn as nn
 from mmcv.cnn import ConvModule
@@ -87,7 +86,6 @@ class PatchTransformerEncoder(nn.Module):
         embeddings = embeddings.permute(2, 0, 1)
         x = self.transformer_encoder(embeddings)  # .shape = S, N, E
         return x
-
 
 class PixelWiseDotProduct(nn.Module):
     def __init__(self):

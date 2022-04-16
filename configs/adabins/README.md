@@ -33,7 +33,7 @@ We address the problem of estimating a high quality dense depth map from a singl
 | Method | Backbone | Train Epoch | Abs Rel (+flip) | RMSE (+flip) | Config | Download |
 | ------ | :--------: | :----: | :--------------: | :------: | :------: | :--------: |
 | Official | EfficientNetB5-AP   |  25   | 0.058 | 2.36 |  - | -
-| Adabins  |  EfficientNetB5-AP  |  24   | 0.058 | 2.33 |  [config](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/adabins/adabins_efnetb5ap_kitti_24e.py) | [log](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/adabins/resources/logs/adabins_efnetb5ap_kitti_24e.txt)
+| Adabins  |  EfficientNetB5-AP  |  24   | 0.058 | 2.33 |  [config](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/adabins/adabins_efnetb5ap_kitti_24e.py) | [log](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/adabins/resources/logs/adabins_efnetb5ap_kitti_24e.txt) \| [model](https://drive.google.com/file/d/17srI3mFoYLdnN1As4a2fRGrHA0UHuujX/view?usp=sharing)
 
 
 ### NYU
@@ -41,7 +41,7 @@ We address the problem of estimating a high quality dense depth map from a singl
 | Method | Backbone | Train Epoch | Abs Rel (+flip) | RMSE (+flip) | Config | Download |
 | ------ | :--------: | :----: | :--------------: | :------: |  :------: | :--------: |
 | Official | EfficientNetB5-AP   |  25   | 0.103 | 0.364 |  - | -
-| Adabins  | EfficientNetB5-AP   |  24   | 0.106 | 0.368 |  [config](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/adabins/adabins_efnetb5ap_nyu_24e.py) | [log](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/adabins/resources/logs/adabins_efnetb5ap_nyu_24e.txt)
-| Adabins  | ResNet-50   |  24   | 0.141 | 0.451 |  [config](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/adabins/adabins_r50_nyu_24e.py) | log
+| Adabins  | EfficientNetB5-AP   |  24   | 0.106 | 0.368 |  [config](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/adabins/adabins_efnetb5ap_nyu_24e.py) | [log](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/adabins/resources/logs/adabins_efnetb5ap_nyu_24e.txt) \| [model](https://drive.google.com/file/d/1NRTWApIrxOjeeN7FdNTTOXV3KOuo_-aC/view?usp=sharing)
+| Adabins  | ResNet-50   |  24   | 0.141 | 0.451 |  [config](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/adabins/adabins_r50_nyu_24e.py) | [log](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/adabins/resources/logs/adabins_r50_nyu_24e.txt) \| [model](https://drive.google.com/file/d/1cVvmJjot1rLk06FkAQl_PCeMOApt6-7x/view?usp=sharing)
 
 

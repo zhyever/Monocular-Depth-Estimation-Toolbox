@@ -26,7 +26,7 @@ Thanks to MMSeg, we own these major features. :blush:
 
 ## Benchmark and model zoo
 
-Results and models are available in the [model zoo (TODO)](docs/model_zoo.md).
+Results and models are available in the [model zoo](docs/model_zoo.md).
 
 Supported backbones (partially release):
 - [x] ResNet (CVPR'2016)
@@ -68,13 +68,6 @@ This project is released under the [Apache 2.0 license](LICENSE).
 This repo benefits from awesome works of [mmsegmentation](https://github.com/open-mmlab/mmsegmentation), [Adabins](https://github.com/shariqfarooq123/AdaBins),
 [BTS](https://github.com/cleinc/bts). Please also consider citing them.
 
-
-## TODO
-
-- Some annotations in codes are futile, waiting to be rewritten.
-- I will release codes of BinsFormer soon.
-- I would like to include self-supervised depth estimation methods, such as MonoDepth2.
-
 ## Cite
 
 ```bibtex
@@ -85,3 +78,11 @@ This repo benefits from awesome works of [mmsegmentation](https://github.com/ope
   year={2021}
 }
 ```
+
+## Changelog
+- **Apr 16**: Finish most of docs and provide all trained parameters. Release codes about BTS, Adabins, DPT, SimIPU, and DepthFormer. Support KITTI, NYU-v2, SUN RGB-D(eval), and CityScapes.
+
+## TODO
+- Some annotations in codes are futile, waiting to be rewritten.
+- I will release codes of BinsFormer soon.
+- I would like to include self-supervised depth estimation methods, such as MonoDepth2.
