@@ -4,10 +4,10 @@ Monocular-Depth-Estimation-Toolbox implements distributed training and non-distr
 
 All outputs (log files and checkpoints) will be saved to the working directory, which is specified by `work_dir` in the config file.
 
-By default we evaluate the model on the validation set after some iterations, you can change the evaluation interval by adding the interval argument in the training config.
+By default we evaluate the model on the validation set after some epoches, you can change the evaluation interval by adding the interval argument in the training config.
 
 ```python
-evaluation = dict(interval=4000)  # This evaluate the model per 4000 iterations.
+evaluation = dict(interval=2)  # This evaluate the model per 2 epoches.
 ```
 
 **\*Important\***: The default learning rate in config files is for 2 GPUs and 8 img/gpu (batch size = 2x8 = 16). Equivalently, you may also use 8 GPUs and 2 imgs/gpu since all models using cross-GPU SyncBN.
