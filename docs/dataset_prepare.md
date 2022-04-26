@@ -74,9 +74,11 @@ Following previous work, I utilize about 50K image-depth pairs as our training s
 ```shell
 $ git clone https://github.com/cleinc/bts.git
 $ cd bts
-$ python utils/download_from_gdrive.py 1AysroWpfISmm-yRFGBgFTrLy6FjQwvwP ../dataset/nyu_depth_v2/sync.zip
+$ python utils/download_from_gdrive.py 1AysroWpfISmm-yRFGBgFTrLy6FjQwvwP sync.zip
 $ unzip sync.zip
 ```
+
+Also, you can download it from following link: https://drive.google.com/file/d/1AysroWpfISmm-yRFGBgFTrLy6FjQwvwP/view?usp=sharing
 
 Then, you need to download the standard test set from this [link](https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html). (**Note**: The downloaded file will be unzipped to folder test and train. You need to cut the files in the test folder out to data/nyu, organizing the directory structure following the file trees provided on the top of this page.)
 
