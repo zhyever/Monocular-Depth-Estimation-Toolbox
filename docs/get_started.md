@@ -46,10 +46,12 @@ cd Monocular-Depth-Estimation-Toolbox
 pip install -e .
 ```
 
+Recently, I have tested our codes based on mmcv==1.5.0, which also works.
+
 More information about installation can be found in docs of MMSegmentation (see [get_started.md](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/get_started.md#installation)).
 
 ### Other Dependence
-When reproducing Adabins, [Pytorch3d](https://github.com/facebookresearch/pytorch3d) is needed to calculate the chamfer loss. You can annotate the import in depth/models/losses/chamferloss.py if you don't wanna train Adabins, or you should install Pytorch3d:
+When reproducing Adabins, [Pytorch3d](https://github.com/facebookresearch/pytorch3d) is needed to calculate the chamfer loss. You can de-annotate the import in depth/models/losses/chamferloss.py if you wanna train Adabins, or you should install Pytorch3d:
 ```
 conda install -c fvcore -c iopath -c conda-forge fvcore iopath
 conda install -c bottler nvidiacub

@@ -166,7 +166,6 @@ def main():
         inv_K = np.array(np.matrix(intrinsics).I)
         inv_K = pix_coords.new_tensor(inv_K)
         cam_points = torch.matmul(inv_K[:3, :3], pix_coords)
-        # 307200
         
         depth_flatten = depth.view(-1)
 

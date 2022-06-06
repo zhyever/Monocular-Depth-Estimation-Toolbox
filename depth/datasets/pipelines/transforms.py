@@ -195,13 +195,14 @@ class RandomRotate(object):
                                            auto_bound=self.auto_bound)
 
             # rotate depth
-            results["depth_gt"] = mmcv.imrotate(
-                results["depth_gt"],
-                angle=degree,
-                border_value=self.depth_pad_val,
-                center=self.center,
-                auto_bound=self.auto_bound,
-                interpolation='nearest')
+            for key in results.get('depth_fields', []):
+                results[key] = mmcv.imrotate(
+                    results[key],
+                    angle=degree,
+                    border_value=self.depth_pad_val,
+                    center=self.center,
+                    auto_bound=self.auto_bound,
+                    interpolation='nearest')
 
         return results
 
@@ -320,7 +321,9 @@ class RandomCrop(object):
         results['img_shape'] = img_shape
 
         # crop depth
-        results["depth_gt"] = self.crop(results["depth_gt"], crop_bbox)
+        for key in results.get('depth_fields', []):
+            results[key] = self.crop(results[key], crop_bbox)
+            
         results["depth_shape"] = img_shape
 
         return results

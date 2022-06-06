@@ -10,7 +10,7 @@ def resize(input,
            scale_factor=None,
            mode='nearest',
            align_corners=None,
-           warning=True):
+           warning=False):
     if warning:
         if size is not None and align_corners:
             input_h, input_w = tuple(int(x) for x in input.shape[2:])

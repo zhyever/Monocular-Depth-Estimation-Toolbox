@@ -17,8 +17,8 @@ from torch.nn.modules.utils import _pair as to_2tuple
 from depth.ops import resize
 from ...utils import get_root_logger
 from ..builder import ATTENTION, BACKBONES
-from ..utils import PatchEmbed, swin_convert
-
+from ..utils import swin_convert
+from depth.models.utils import PatchEmbedSwin as PatchEmbed
 
 class PatchMerging(BaseModule):
     """Merge patch feature map.

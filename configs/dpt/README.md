@@ -56,10 +56,10 @@ In our reproduction, we utilize the standard ImageNet pre-trained ViT-Base inste
 
 | Method | Backbone | Train Epoch | Abs Rel (+flip) | RMSE (+flip) | Config | Download | GPUs |
 | ------ | :--------: | :----: | :--------------: | :------: | :------: | :--------: | :---:|
-| DPT  |  ViT-Base  |  24   | 0.073 | 2.604 |  [config](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/dpt/dpt_vit-b16_kitti.py) | [log](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/dpt/resources/logs/dpt_vitb_kitti_24e.txt) \| [model](https://drive.google.com/file/d/1ZuFh7COIgPs4Aml3Rrld54A5eYmBHggP/view?usp=sharing) | 8 V100s |
+| DPT  |  ViT-Base  |  24   | 0.073 | 2.604 |  [config](dpt_vit-b16_kitti.py) | [log](resources/logs/dpt_vitb_kitti_24e.txt) \| [model](https://drive.google.com/file/d/1ZuFh7COIgPs4Aml3Rrld54A5eYmBHggP/view?usp=sharing) | 8 V100s |
 
 ### NYU
 
 | Method | Backbone | Train Epoch | Abs Rel (+flip) | RMSE (+flip) | Config | Download | GPUs |
 | ------ | :--------: | :----: | :--------------: | :------: | :------: | :--------: | :---:|
-| DPT  |  ViT-Base  |  24   | 0.135 | 0.413 |  [config](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/dpt/dpt_vit-b16_nyu.py) | [log](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/dpt/resources/logs/dpt_vitb_nyu_24e.txt) \| [model](https://drive.google.com/file/d/13lxVNf-B5qt1cOoxSWTkVf3HlJGE-olv/view?usp=sharing) | 8 V100s |
+| DPT  |  ViT-Base  |  24   | 0.135 | 0.413 |  [config](dpt_vit-b16_nyu.py) | [log](resources/logs/dpt_vitb_nyu_24e.txt) \| [model](https://drive.google.com/file/d/13lxVNf-B5qt1cOoxSWTkVf3HlJGE-olv/view?usp=sharing) | 8 V100s |

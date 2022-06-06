@@ -40,6 +40,21 @@ test_pipeline = [
                             'cam_intrinsic')),
         ])
 ]
+
+# for visualization of pc
+eval_pipeline = [
+    dict(type='LoadImageFromFile'),
+    dict(type='RandomFlip', prob=0.0), # set to zero
+    dict(type='Normalize', **img_norm_cfg),
+    dict(type='ImageToTensor', keys=['img']),
+    dict(type='Collect', 
+         keys=['img'],
+         meta_keys=('filename', 'ori_filename', 'ori_shape',
+                    'img_shape', 'pad_shape', 'scale_factor', 
+                    'flip', 'flip_direction', 'img_norm_cfg',
+                    'cam_intrinsic')),
+]
+
 data = dict(
     samples_per_gpu=8,
     workers_per_gpu=8,

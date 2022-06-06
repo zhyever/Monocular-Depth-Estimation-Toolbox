@@ -2,7 +2,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from pytorch3d.loss import chamfer_distance
+# from pytorch3d.loss import chamfer_distance
 from torch.nn.utils.rnn import pad_sequence
 
 from depth.models.builder import LOSSES

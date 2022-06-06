@@ -32,7 +32,7 @@ Estimating accurate depth from a single image is challenging because it is an il
 | Method | Backbone | Train Epoch | Abs Rel | RMSE | Config | Download |
 | ------ | :--------: | :----: | :--------------: | :------: | :------: | :--------: |
 | Official | ResNet-50 |  50   | 0.061 | 2.80 |  - | -
-| BTS      | ResNet-50 |  24   | 0.059 | 2.50 |  [config](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/bts/bts_r50_kitti_24e.py) | [log](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/bts/resources/logs/bts_r50_kitti_24e.txt) \| [model](https://drive.google.com/file/d/1epjGHnEBbyxhauX0Ad43SSD71ldFMRpO/view?usp=sharing)
+| BTS      | ResNet-50 |  24   | 0.059 | 2.50 |  [config](bts_r50_kitti_24e.py) | [log](resources/logs/bts_r50_kitti_24e.txt) \| [model](https://drive.google.com/file/d/1epjGHnEBbyxhauX0Ad43SSD71ldFMRpO/view?usp=sharing)
 
 
 ### NYU
@@ -40,5 +40,5 @@ Estimating accurate depth from a single image is challenging because it is an il
 | Method | Backbone | Train Epoch | Abs Rel | RMSE | Config | Download |
 | ------ | :--------: | :----: | :--------------: | :------: |  :------: | :--------: |
 | Official | ResNet-50 |  50   | 0.119 | 0.42 |  - | -
-| BTS      | ResNet-50 |  24   | 0.114 | 0.41 |  [config](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/bts/bts_r50_nyu_24e.py) | [log](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/blob/main/configs/bts/resources/logs/bts_r50_nyu_24e.txt) \| [model](https://drive.google.com/file/d/1O8C57nq7Cydy4WGqNhR0Y3rxcUph7jcX/view?usp=sharing)
+| BTS      | ResNet-50 |  24   | 0.114 | 0.41 |  [config](bts_r50_nyu_24e.py) | [log](resources/logs/bts_r50_nyu_24e.txt) \| [model](https://drive.google.com/file/d/1O8C57nq7Cydy4WGqNhR0Y3rxcUph7jcX/view?usp=sharing)
 

@@ -84,7 +84,6 @@ class CustomDepthDataset(Dataset):
             list[dict]: All image info of dataset.
         """
 
-        self.invalid_depth_num = 0
         img_infos = []
 
         imgs = os.listdir(img_dir)
@@ -94,16 +93,23 @@ class CustomDepthDataset(Dataset):
             depths = os.listdir(depth_dir)
             depths.sort()
 
-        for img, depth in zip(imgs, depths):
-            img_info = dict()
-            img_info['filename'] = img
-            if self.test_mode is not True:
+            for img, depth in zip(imgs, depths):
+                img_info = dict()
+                img_info['filename'] = img
                 img_info['ann'] = dict(depth_map=depth)
-            img_infos.append(img_info)
+                img_infos.append(img_info)
+        
+        else:
+
+            for img in imgs:
+                img_info = dict()
+                img_info['filename'] = img
+                img_infos.append(img_info)
 
         # github issue:: make sure the same order
         img_infos = sorted(img_infos, key=lambda x: x['filename'])
-        print_log(f'Loaded {len(img_infos)} images. Totally {self.invalid_depth_num} invalid pairs are filtered', logger=get_root_logger())
+        print_log(f'Loaded {len(img_infos)} images.', logger=get_root_logger())
+
         return img_infos
 
     def pre_pipeline(self, results):
