@@ -68,27 +68,14 @@ This project is released under the [Apache 2.0 license](LICENSE).
 This repo benefits from awesome works of [mmsegmentation](https://github.com/open-mmlab/mmsegmentation), [Adabins](https://github.com/shariqfarooq123/AdaBins),
 [BTS](https://github.com/cleinc/bts). Please also consider citing them.
 
-## Cite
-If you find this toolbox helpful for your projects or research, consider citing one of our works listed below. I may conduct a technique report based on this toolbox to discuss training details for supervised monocular depth estimation in the future.
 
+## Cite
 ```bibtex
-@article{li2022binsformer,
-  title={BinsFormer: Revisiting Adaptive Bins for Monocular Depth Estimation},
-  author={Li, Zhenyu and Wang, Xuyang and Liu, Xianming and Jiang, Junjun},
-  journal={arXiv preprint arXiv:2204.00987},
+@misc{lidepthtoolbox2022,
+  title={Monocular Depth Estimation Toolbox},
+  author={Zhenyu Li},
+  howpublished = {\url{https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox}},
   year={2022}
-}
-@article{li2022depthformer,
-  title={DepthFormer: Exploiting Long-Range Correlation and Local Information for Accurate Monocular Depth Estimation},
-  author={Li, Zhenyu and Chen, Zehui and Liu, Xianming and Jiang, Junjun},
-  journal={arXiv preprint arXiv:2203.14211},
-  year={2022}
-}
-@article{li2021simipu,
-  title={SimIPU: Simple 2D Image and 3D Point Cloud Unsupervised Pre-Training for Spatial-Aware Visual Representations},
-  author={Li, Zhenyu and Chen, Zehui and Li, Ang and Fang, Liangji and Jiang, Qinhong and Liu, Xianming and Jiang, Junjun and Zhou, Bolei and Zhao, Hang},
-  journal={arXiv preprint arXiv:2112.04680},
-  year={2021}
 }
 ```
 
@@ -97,5 +84,5 @@ If you find this toolbox helpful for your projects or research, consider citing 
 - **Apr. 16, 2022**: Finish most of docs and provide all pre-trained parameters. Release codes about BTS, Adabins, DPT, SimIPU, and DepthFormer. Support KITTI, NYU-v2, SUN RGB-D(eval), and CityScapes.
 
 ## TODO
-- I will release codes of BinsFormer soon (Delaying).
+- I will release codes of BinsFormer soon (On going).
 - I would like to include self-supervised depth estimation methods, such as MonoDepth2.
