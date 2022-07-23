@@ -24,7 +24,7 @@ class SigLoss(nn.Module):
         self.loss_weight = loss_weight
         self.max_depth = max_depth
 
-        self.eps = 0.1 # avoid grad explode
+        self.eps = 0.001 # avoid grad explode
 
         # HACK: a hack implement for warmup sigloss
         self.warm_up = warm_up
@@ -46,7 +46,7 @@ class SigLoss(nn.Module):
                 self.warm_up_counter += 1
                 return torch.sqrt(g)
 
-        g = torch.log(input) - torch.log(target)
+        g = torch.log(input + self.eps) - torch.log(target + self.eps)
         Dg = torch.var(g) + 0.15 * torch.pow(torch.mean(g), 2)
         return torch.sqrt(Dg)
 

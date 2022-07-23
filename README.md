@@ -41,6 +41,7 @@ Supported methods:
 - [x] [SimIPU (AAAI'2022)](configs/simipu)
 - [x] [DPT (ICCV'2021) (TBD)](configs/dpt)
 - [x] [DepthFormer (Arxiv'2022)](configs/depthformer)
+- [x] [BinsFormer (Arxiv'2022)](configs/binsformer) (Early release. It may contain bugs or potential performance drop)
 
 Supported datasets:
 - [x] [KITTI](docs/dataset_prepare.md#KITTI)
@@ -80,9 +81,10 @@ This repo benefits from awesome works of [mmsegmentation](https://github.com/ope
 ```
 
 ## Changelog
+- **Jul. 23, 2022**: Release codes for BinsFormer. Potential bugs or performance drops can exist, waiting for completion.
 - **Jun. 5, 2022**: Add support for custom dataset training. Add a warmup interface for sigloss to help convergence as discussed in Issue [#20](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/issues/20). Enhance the DPT support and fix bugs in provided pre-trained models as reported in Issue [#23](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/issues/23). 
 - **Apr. 16, 2022**: Finish most of docs and provide all pre-trained parameters. Release codes about BTS, Adabins, DPT, SimIPU, and DepthFormer. Support KITTI, NYU-v2, SUN RGB-D(eval), and CityScapes.
 
 ## TODO
-- I will release codes of BinsFormer soon (On going).
+- I will complete release of BinsFormer (On going).
 - I would like to include self-supervised depth estimation methods, such as MonoDepth2.
