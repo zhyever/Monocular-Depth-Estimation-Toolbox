@@ -47,7 +47,10 @@ model = dict(
                 transformerlayers=dict(
                     type='BaseTransformerLayer',
                     attn_cfgs=dict(
-                        type='MultiScaleDeformableAttention', embed_dims=256, num_levels=3, num_points=8),
+                        type='MultiScaleDeformableAttention', 
+                        embed_dims=256, 
+                        num_levels=3, 
+                        num_points=8),
                     feedforward_channels=1024,
                     ffn_dropout=0.1,
                     operation_order=('self_attn', 'norm', 'ffn', 'norm')))),

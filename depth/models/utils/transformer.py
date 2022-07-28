@@ -1557,7 +1557,8 @@ class PixelTransformerDecoder(BaseModule):
                  num_feature_levels=3,
                  init_cfg=None,
                  classify=True,
-                 class_num=249):
+                 class_num=249,
+                 operation='%'):
 
         super(PixelTransformerDecoder, self).__init__(init_cfg)
         if num_layers!=0:
@@ -1602,6 +1603,10 @@ class PixelTransformerDecoder(BaseModule):
         self.num_heads = transformerlayers[-1]['attn_cfgs']['num_heads']
 
         self.hook_identify = torch.nn.Identity()
+
+        self.operation = operation
+        assert operation in ['%', '//'], \
+            "only support '%' or '//'. No obvious discrepancy between them."
 
     def forward_prediction_heads(self, output, mask_features):
         decoder_output = self.decoder_norm(output)
@@ -1654,7 +1659,13 @@ class PixelTransformerDecoder(BaseModule):
 
         for idx, layer in enumerate(self.layers):
             # // or %
-            level_index = idx // self.num_feature_levels
+            # level_index = idx // self.num_feature_levels
+            if self.operation == '%':
+                level_index = idx % self.num_feature_levels
+            elif self.operation == '//':
+                level_index = idx // self.num_feature_levels
+            else:
+                raise NotImplementedError
 
             output = layer(
                 output,

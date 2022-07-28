@@ -12,7 +12,7 @@ We address the problem of estimating a high quality dense depth map from a singl
 
 
 ## Framework
-<div align=center><img width="810" height="150" src="resources/images/adabins.png"/></div>
+<div align=center><img src="resources/images/adabins.png"/></div>
 
 ## Citation
 

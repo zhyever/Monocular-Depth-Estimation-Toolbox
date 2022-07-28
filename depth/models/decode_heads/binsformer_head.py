@@ -112,8 +112,10 @@ class BinsFormerDecodeHead(DepthBaseDecodeHead):
 
         for idx, in_channel in enumerate(self.in_channels[:self.num_fpn_levels]):
             lateral_conv = ConvModule(
-                in_channel, conv_dim, kernel_size=1, norm_cfg=norm_cfg
-            )
+                in_channel, 
+                conv_dim, 
+                kernel_size=1, 
+                norm_cfg=norm_cfg)
             output_conv = ConvModule(
                 conv_dim,
                 conv_dim,
@@ -345,6 +347,7 @@ class BinsFormerDecodeHead(DepthBaseDecodeHead):
         aux_weight_dict = {}
 
         if train_cfg["aux_loss"]:
+
             for index, weight in zip(train_cfg["aux_index"], train_cfg["aux_weight"]):
                 depth = pred_depths[index]
 

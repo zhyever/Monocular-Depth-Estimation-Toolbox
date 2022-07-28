@@ -4,21 +4,17 @@ _base_ = [
 ]
 
 model = dict(
-    pretrained='https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_tiny_patch4_window7_224.pth', # noqa
+    pretrained='https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_large_patch4_window7_224_22k.pth', # noqa
     backbone=dict(
-        embed_dims=96,
-        depths=[2, 2, 6, 2],
-        num_heads=[3, 6, 12, 24],
-        window_size=7,
-        use_abs_pos_embed=False,
-        drop_path_rate=0.3,
-        patch_norm=True,
-        pretrain_style='official'),
+        embed_dims=192,
+        depths=[2, 2, 18, 2],
+        num_heads=[6, 12, 24, 48],
+        window_size=7),
     decode_head=dict(
         type='BinsFormerDecodeHead',
         class_num=25,
-        in_channels=[96, 192, 384, 768],
-        channels=256,
+        in_channels=[192, 384, 768, 1536],
+        conv_dim=512,
         min_depth=1e-3,
         max_depth=10,
         n_bins=64,
@@ -39,23 +35,31 @@ model = dict(
                 transformerlayers=dict(
                     type='BaseTransformerLayer',
                     attn_cfgs=dict(
-                        type='MultiScaleDeformableAttention', embed_dims=256, num_levels=3, num_points=8),
-                    feedforward_channels=1024,
-                    ffn_dropout=0.1,
+                        type='MultiScaleDeformableAttention', 
+                        embed_dims=512, 
+                        num_levels=3, 
+                        num_points=8),
+                    ffn_cfgs=dict(
+                        embed_dims=512,
+                        feedforward_channels=1024,
+                        ffn_dropout=0.1,),
+                    # feedforward_channels=1024,
+                    # ffn_dropout=0.1,
                     operation_order=('self_attn', 'norm', 'ffn', 'norm')))),
         positional_encoding=dict(
-            type='SinePositionalEncoding', num_feats=128, normalize=True),
+            type='SinePositionalEncoding', num_feats=256, normalize=True),
         transformer_decoder=dict(
             type='PixelTransformerDecoder',
             return_intermediate=True,
             num_layers=9,
             num_feature_levels=3,
-            hidden_dim=256,
+            hidden_dim=512,
+            operation='%',
             transformerlayers=dict(
                 type='PixelTransformerDecoderLayer',
                 attn_cfgs=dict(
                     type='MultiheadAttention',
-                    embed_dims=256,
+                    embed_dims=512,
                     num_heads=8,
                     dropout=0.0),
                 ffn_cfgs=dict(
@@ -111,8 +115,8 @@ eval_pipeline = [
 ]
 
 data = dict(
-    samples_per_gpu=8,
-    workers_per_gpu=8,
+    samples_per_gpu=2,
+    workers_per_gpu=2,
     train=dict(
         type=dataset_type,
         data_root=data_root,
@@ -147,16 +151,27 @@ data = dict(
 
 # AdamW optimizer, no weight decay for position embedding & layer norm
 # in backbone
-optimizer = dict(type='AdamW', lr=1e-4, betas=(0.95, 0.99), weight_decay=0.01,)
+max_lr = 1e-4
+optimizer = dict(
+    type='AdamW',
+    lr=max_lr,
+    betas=(0.9, 0.999),
+    weight_decay=0.01,
+    paramwise_cfg=dict(
+        custom_keys={
+            'absolute_pos_embed': dict(decay_mult=0.),
+            'relative_position_bias_table': dict(decay_mult=0.),
+            'norm': dict(decay_mult=0.),
+        }))
 # learning policy
 lr_config = dict(
     policy='OneCycle',
-    max_lr=1e-4,
+    max_lr=max_lr,
     warmup_iters=1600 * 8,
     div_factor=25,
     final_div_factor=100,
     by_epoch=False)
-optimizer_config = dict(grad_clip=dict(max_norm=0.01, norm_type=2))
+optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
 # runtime settings
 runner = dict(type='IterBasedRunner', max_iters=1600 * 24)
 checkpoint_config = dict(by_epoch=False, max_keep_ckpts=2, interval=1600)
