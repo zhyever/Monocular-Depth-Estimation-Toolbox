@@ -10,14 +10,16 @@ from depth.models.builder import LOSSES
 
 @LOSSES.register_module()
 class BinsChamferLoss(nn.Module):
-    """BinsChamferLoss used in Adabins. Waiting for re-writing
-
+    """BinsChamferLoss used in `Adabins <https://github.com/shariqfarooq123/AdaBins/blob/main/loss.py>`_. 
+    
+        Waiting for re-writing
+        
     Args:
-        loss_weight (float, optional): Weight of the loss. Defaults to 1.0.
+        loss_weight (float): Weight of the loss. Default: 1.0.
     """
 
     def __init__(self,
-                 loss_weight=0.1):
+                 loss_weight=1.0):
         super(BinsChamferLoss, self).__init__()
         self.loss_weight = loss_weight
 
@@ -38,8 +40,7 @@ class BinsChamferLoss(nn.Module):
 
     def forward(self,
                 input,
-                target,
-                **kwargs):
+                target):
         """Forward function."""
         
         chamfer_loss = self.bins_chamfer_loss(input, target)

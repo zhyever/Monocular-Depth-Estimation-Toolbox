@@ -10,11 +10,9 @@ from depth.models.builder import NECKS
 class SkipNeck(nn.Module):
     """SkipNeck.
 
-    Reshape the skip features.
+        Reshape the skip features. Simple hack of reassemble layer in `DPT <https://arxiv.org/abs/2103.13413>`_.
 
     Args:
-        in_channels (List[int]): Number of input channels per scale.
-        out_channels (int): Number of output channels (used at each scale).
         scales (List[float]): Scale factors for each input feature map.
             Default: [0.5, 1, 2, 4]
         norm_cfg (dict): Config dict for normalization layer. Default: None.
@@ -23,15 +21,12 @@ class SkipNeck(nn.Module):
     """
 
     def __init__(self,
-                 in_channels,
-                 out_channels,
+                 reassemble=False,
                  scales=[0.5, 1, 2, 4]):
         super(SkipNeck, self).__init__()
-        assert isinstance(in_channels, list)
-        self.in_channels = in_channels
-        self.out_channels = out_channels
         self.scales = scales
         self.num_outs = len(scales)
+        self.reassemble = reassemble
 
     # default init_weights for conv(msra) and norm in ConvModule
     def init_weights(self):
@@ -40,13 +35,20 @@ class SkipNeck(nn.Module):
                 xavier_init(m, distribution='uniform')
 
     def forward(self, inputs):
-        assert len(inputs) == len(self.in_channels)
         outs = []
         for i in range(self.num_outs):
+
+            if self.reassemble:
+                x, cls_token = inputs[i]
+            else:
+                x = inputs[i]
+
             if self.scales[i] != 1:
                 x_resize = resize(
-                    inputs[i], scale_factor=self.scales[i], mode='bilinear')
+                    x, scale_factor=self.scales[i], mode='bilinear', align_corners=True)
             else:
-                x_resize = inputs[i]
+                x_resize = x
+                
             outs.append(x_resize)
+
         return tuple(outs)

@@ -7,20 +7,9 @@ from depth.models.builder import LOSSES
 
 @LOSSES.register_module()
 class CrossEntropyLoss(nn.Module):
-    """CrossEntropyLoss.
+    """CrossEntropyLoss wrapper.
     Args:
-        use_sigmoid (bool, optional): Whether the prediction uses sigmoid
-            of softmax. Defaults to False.
-        use_mask (bool, optional): Whether to use mask cross entropy loss.
-            Defaults to False.
-        reduction (str, optional): . Defaults to 'mean'.
-            Options are "none", "mean" and "sum".
-        class_weight (list[float] | str, optional): Weight of each class. If in
-            str format, read them from a file. Defaults to None.
-        loss_weight (float, optional): Weight of the loss. Defaults to 1.0.
-        loss_name (str, optional): Name of the loss item. If you want this loss
-            item to be included into the backward graph, `loss_` must be the
-            prefix of the name. Defaults to 'loss_ce'.
+        loss_weight (float): Weight of the loss. Default: 1.0.
     """
 
     def __init__(self,
@@ -28,7 +17,6 @@ class CrossEntropyLoss(nn.Module):
         super(CrossEntropyLoss, self).__init__()
         self.loss_weight = loss_weight
         
-
     @torch.no_grad()
     def accuracy(self, output, target, topk=(1, 5, )):
         """Computes the precision@k for the specified values of k"""
