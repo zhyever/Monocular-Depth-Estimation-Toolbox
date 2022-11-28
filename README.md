@@ -40,6 +40,7 @@ Supported methods:
 - [x] [Adabins (CVPR'2021)](configs/adabins)
 - [x] [SimIPU (AAAI'2022)](configs/simipu)
 - [x] [DPT (ICCV'2021) (TBD)](configs/dpt)
+- [x] [NeWCRFs (CVPR'2022) (TBD)](configs/newcrfs)
 - [x] [DepthFormer (Arxiv'2022)](configs/depthformer)
 - [x] [BinsFormer (Arxiv'2022)](configs/binsformer) (Early release. It may contain bugs or potential performance drop)
 
@@ -48,7 +49,6 @@ Supported datasets:
 - [x] [NYU-Depth-V2](docs/dataset_prepare.md#NYU)
 - [x] [SUN RGB-D (Eval)](docs/dataset_prepare.md#SUNRGBD)
 - [x] [Cityscapes](docs/dataset_prepare.md#Cityscapes)
-
 
 ## Installation
 
@@ -81,10 +81,11 @@ This repo benefits from awesome works of [mmsegmentation](https://github.com/ope
 ```
 
 ## Changelog
+- **Nov. 29, 2022**: Release the config for BinsFormer on KITTI. Release configs for cross-dataset inference (nyu2sunrgbd). Fix NYUv2 download bugs as discussed in Issue [#66](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/issues/66) and [#36](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/issues/36). I add several codes for NeWCRFs but have no plan to conduct detailed experiments for it due to the current limited resource and time.
 - **Jul. 23, 2022**: Release codes for BinsFormer. Potential bugs or performance drops can exist, waiting for completion.
 - **Jun. 5, 2022**: Add support for custom dataset training. Add a warmup interface for sigloss to help convergence as discussed in Issue [#20](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/issues/20). Enhance the DPT support and fix bugs in provided pre-trained models as reported in Issue [#23](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox/issues/23). 
 - **Apr. 16, 2022**: Finish most of docs and provide all pre-trained parameters. Release codes about BTS, Adabins, DPT, SimIPU, and DepthFormer. Support KITTI, NYU-v2, SUN RGB-D(eval), and CityScapes.
 
 ## TODO
-- I will complete release of BinsFormer (On going).
+- I will complete the release of BinsFormer models on KITTI dataset (currently limited by the GPU resource). 
 - I would like to include self-supervised depth estimation methods, such as MonoDepth2.

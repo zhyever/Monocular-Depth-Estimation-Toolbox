@@ -1,7 +1,7 @@
 # dataset settings
 # We only use SUN RGB-D dataset for cross-dataset evaluation
 dataset_type = 'SUNRGBDDataset'
-data_root = 'data/SUNRGBD/'
+data_root = 'data/sunrgbd/'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 test_pipeline = [

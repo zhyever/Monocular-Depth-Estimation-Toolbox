@@ -95,7 +95,9 @@ Some methods may use the camera intrinsic parameters (*i.e.,* BTS), you need to 
 
 ### **NYU**
 
-Following previous work, I utilize about 50K image-depth pairs as our training set and standard 652 images as the validation set. You can download the subset with the help of codes provided in [BTS](https://github.com/cleinc/bts/tree/master/pytorch).
+Following previous work, I utilize about 24231 image-depth pairs as the training set and standard 652 images as the validation set. You can download the dataset from [Google Drive Link](https://drive.google.com/file/d/1wC-io-14RCIL4XTUrQLk6lBqU2AexLVp/view?usp=share_link) (including training and validation sets).
+
+<!-- You can download the subset with the help of codes provided in [BTS](https://github.com/cleinc/bts/tree/master/pytorch).
 
 ```shell
 $ git clone https://github.com/cleinc/bts.git
@@ -108,7 +110,7 @@ Also, you can download it from following link: https://drive.google.com/file/d/1
 
 Then, you need to download the standard test set from this [link](https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html). (**Note**: The downloaded file will be unzipped to folder test and train. You need to cut the files in the test folder out to data/nyu, organizing the directory structure following the file trees provided on the top of this page.)
 
-Finally, copy nyu_train.txt and nyu_test.txt in the splits folder into the data/nyu.
+Finally, copy nyu_train.txt and nyu_test.txt in the splits folder into the data/nyu. -->
 
 
 ### **SUNRGBD**

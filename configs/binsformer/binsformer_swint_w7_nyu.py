@@ -106,14 +106,20 @@ test_pipeline = [
             dict(type='Collect', keys=['img']),
         ])
 ]
+
+# for visualization of pc
 eval_pipeline = [
     dict(type='LoadImageFromFile'),
-    dict(type='RandomFlip', direction='horizontal', prob=0),
+    dict(type='RandomFlip', prob=0.0), # set to zero
     dict(type='Normalize', **img_norm_cfg),
-    dict(type='DefaultFormatBundle'),
-    dict(type='Collect', keys=['img']),
+    dict(type='ImageToTensor', keys=['img']),
+    dict(type='Collect', 
+         keys=['img'],
+         meta_keys=('filename', 'ori_filename', 'ori_shape',
+                    'img_shape', 'pad_shape', 'scale_factor', 
+                    'flip', 'flip_direction', 'img_norm_cfg',
+                    'cam_intrinsic')),
 ]
-
 data = dict(
     samples_per_gpu=2,
     workers_per_gpu=2,
