@@ -1,4 +1,4 @@
-# Adabins
+# DPT
 
 [Vision Transformer for Dense Prediction](https://arxiv.org/abs/2103.13413)
 
